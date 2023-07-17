@@ -36,40 +36,61 @@
 				<div class="form-right">
 					<div class="overlay">
 						<div class="grid-info-form">
-							<h5>Say hello</h5>
-							<h3>CREATE ACCOUNT </h3>
+							<h5>Traversal Rezervasyon Uygulaması</h5>
+							<h3>Halihazırda Hesabım Var </h3>
 							<p>
 							</p>
-							<a href="index.html" class="read-more-1 btn">Get Started</a>
+							<a href="SignIn" class="read-more-1 btn">Giriş Yap</a>
 						</div>
 
 					</div>
 				</div>
 				<div class="form-left">
 					<div class="middle">
-						<h4>Join Us</h4>
-						<p>Create Your Account, It's Free.</p>
+						<h4>Bize Katılın</h4>
+						<p>Hemen Ücretsiz Hesap Oluşturun</p>
 					</div>
 					<form  method="post" class="signin-form">
 						<div class="form-input">
 							<label>Adınız</label>
-							<input type="text"  required />
+							<input type="text"  required asp-for="Name"/>
+							<span asp-validation-for="Name" class="text-danger"></span>
 						</div>
 						<div class="form-input">
-							<label>Email</label>
-							<input type="email" name="" placeholder="" required />
+							<label>Soyadınız</label>
+							<input type="text" asp-for="Surname"/>
+							<span asp-validation-for="Surname" class="text-danger"></span>
 						</div>
 						<div class="form-input">
-							<label>Password</label>
-							<input type="password" name="" placeholder="" required />
+							<label>Kullanıcı Adınız</label>
+							<input type="text" asp-for="UserName"/>
+							<span asp-validation-for="UserName" class="text-danger"></span>
+						</div>
+						<div class="form-input">
+							<label>Email Adresiniz</label>
+							<input type="email" asp-for="Email"/>
+							<span asp-validation-for="Email" class="text-danger"></span>
+						</div>
+						<div class="form-input">
+							<label>Şifreniz</label>
+							<input type="password"  asp-for="Password"/>
+							<span asp-validation-for="Password" class="text-danger"></span>
+						</div>
+						<div class="form-input">
+							<label>Şifreyi Tekrar Giriniz</label>
+							<input type="password" asp-for="ConfirmPassword" />
+							<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+						</div>
+						<div class="text-danger" asp-validation-summary="ModelOnly">
+
 						</div>
 
 						<label class="container">
-							I agree to <a href="#">Conditions</a> of Use and <a href="#">Privacy</a>
+							Şartları Okudum<a href="#">Kabul Ediyorum</a> 
 							<input type="checkbox">
 							<span class="checkmark"></span>
 						</label>
-						<button class="btn">Create account</button>
+						<button class="btn">Kayıt Ol</button>
 					</form>
 					<div class="copy-right text-center">
 						<p>

@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccsessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
@@ -10,7 +11,8 @@ namespace TraversalCoreProje.Areas.Member.Controllers
     [Area("Member")]
     public class ReservationController : Controller
     {
-        DestinationManager destinationManager = new DestinationManager(new EfDestinationDal);
+        DestinationManager destinationManager = new DestinationManager(new EfDestinationDal());
+        ReservationManager reservationManager = new ReservationManager(new EfReservationDal());
         public IActionResult MyCurrentReservation() { 
             return View(); 
 
@@ -29,9 +31,12 @@ namespace TraversalCoreProje.Areas.Member.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult NewReservation(ReservationController p)
+        public IActionResult NewReservation(Reservation p)
         {
-            return View();
+            p.AppUserID = 3;
+            p.Status = "Onay Bekliyor";
+            reservationManager.TAdd(p);
+            return RedirectToAction("MyCurrentReservation");
         }
     }
 }

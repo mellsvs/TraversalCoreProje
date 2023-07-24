@@ -43,5 +43,10 @@ namespace BusinessLayer.Concrete
         {
             throw new NotImplementedException();
         }
+
+        internal object GetListApprovalReservation(int ıd)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
